@@ -1,6 +1,7 @@
 
 def encriptar(text):
     textFinal= ''
+
     for letra in text:
         ascii= ord(letra)
         ascii += 1
@@ -20,9 +21,9 @@ def desencriptar(text):
 def encriptarArchivo(rutaArchivo):
     archivo =open(rutaArchivo,'r')
 #el paramentro " a " sirve para agregar texto y el " w " para remplazar el contenido
-    texto=archivo.read()
+    text = archivo.read()
     archivo.close()
-    textoEncriptado=encriptar(texto)
+    textoEncriptado=encriptar(text)
 
 
     archivo=open(rutaArchivo,'w')
@@ -33,21 +34,22 @@ def encriptarArchivo(rutaArchivo):
 def desencriptarArchivo(rutaArchivo):
     archivo =open(rutaArchivo,'r')
 #el paramentro " a " sirve para agregar texto y el " w " para remplazar el contenido
-    texto=archivo.read()
+    text=archivo.read()
     archivo.close()
-    textoDesencriptado=desencriptar(texto)
+    textoDesencriptado=desencriptar(text)
 
 
-    archivo=open(rutaArchivo,'w')
+    archivo = open(rutaArchivo,'w')
     archivo.write(textoDesencriptado)
     archivo.close()
     print("El archivo se desencripto")
 
+
 respuestaUsuario=input('presione e para encriptar y d para desencriptar :')
 
-rutaArchivo=input(f'ingrese la ruta del archivo :')
+rutaArchivo=input('ingrese la ruta del archivo :')
 
 if respuestaUsuario=='e':
-    encriptar(rutaArchivo)
+    encriptarArchivo(rutaArchivo)
 else:
-    desencriptar(rutaArchivo)
+    desencriptarArchivo(rutaArchivo)
